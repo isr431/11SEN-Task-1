@@ -82,18 +82,68 @@ class MoneyBuckets:
         self.calculate_buckets()
         self.display()
 
-def compound_interest():
-    age = int(input("Enter your age: "))
-    interest = float(input("Enter the interest rate: "))
-    amount = float(input("Enter the amount you want to invest per annum: "))
-    total_savings = 0
+class CompoundInterest:
+    def __init__(self):
+        self.total_savings = 0
 
-    while age <= 60:
-        interest_earned = total_savings * interest / 100
-        total_savings += amount + interest_earned
-        age += 1
+    def get_age(self):
+        while True:
+            age = input("Enter your age: ")
 
-    print(f"Total savings: {total_savings}")
+            try:
+                age = int(age)
+            except:
+                print("Please enter a valid number.")
+            else:
+                if age < 0:
+                    print("Age must be a positive number.")
+                else:
+                    self.age = age
+                    break
+    
+    def get_interest(self):
+        while True:
+            interest = input("Enter the interest rate: ").strip("%")
+
+            try:
+                interest = float(interest)
+            except:
+                print("Please enter a valid number.")
+            else:
+                if interest < 0:
+                    print("Interest rate must be a positive number.")
+                else:
+                    self.interest = interest / 100
+                    break
+    
+    def get_amount(self):
+        while True:
+            amount = input("Enter the amount you want to invest per annum: ").strip("$")
+
+            try:
+                amount = float(amount)
+            except:
+                print("Please enter a valid number.")
+            else:
+                if amount < 0:
+                    print("Amount must be a positive number.")
+                else:
+                    self.amount = amount
+                    break
+    
+    def calculate_savings(self):
+        while self.age <= 60:
+            interest_earned = self.total_savings * self.interest
+            self.total_savings += self.amount + interest_earned
+            self.age += 1
+    
+    def run(self):
+        self.get_age()
+        self.get_interest()
+        self.get_amount()
+        self.calculate_savings()
+
+        print(f"Total savings: {self.total_savings}")
 
 while True:
     mode = input("Select mode (money buckets/compound interest): ").lower()
