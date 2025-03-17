@@ -83,7 +83,17 @@ class MoneyBuckets:
         self.display()
 
 def compound_interest():
-    pass
+    age = int(input("Enter your age: "))
+    interest = float(input("Enter the interest rate: "))
+    amount = float(input("Enter the amount you want to invest per annum: "))
+    total_savings = 0
+
+    while age <= 60:
+        interest_earned = total_savings * interest / 100
+        total_savings += amount + interest_earned
+        age += 1
+
+    print(f"Total savings: {total_savings}")
 
 while True:
     mode = input("Select mode (money buckets/compound interest): ").lower()
