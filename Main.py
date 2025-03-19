@@ -1,7 +1,8 @@
 class MoneyBuckets:
-    def __init__(self):
+    def __init__(self, income=None):
         # Initialize the MoneyBuckets object
-        pass
+        self.income = income
+        self.buckets = {}
 
     def get_income(self):
         # Get and validate user's income input
