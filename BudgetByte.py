@@ -166,6 +166,8 @@ class CompoundInterest:
 
         print(f"Overall savings: ${self.total_savings:.2f}")
 
+print("Welcome to BudgetByte!")
+
 # Main program loop
 while True:
     # Get user's choice of tool
