@@ -1,8 +1,10 @@
 class MoneyBuckets:
     def __init__(self):
+        # Initialize the MoneyBuckets object
         pass
 
     def get_income(self):
+        # Get and validate user's income input
         while True:
             income = input("Enter income amount: ").strip("$")
 
@@ -18,6 +20,7 @@ class MoneyBuckets:
                     break
 
     def calculate_buckets(self):
+        # Calculate budget allocations
         blow = 0.6 * self.income
         daily_expense = 0.6 * blow
         splurge = 0.1 * blow
@@ -59,6 +62,7 @@ class MoneyBuckets:
         }
     
     def display(self):
+        # Display the calculated budget allocations in a formatted way
         print("\n" + "=" * 60)
         print(f"YOUR MONEY BUCKETS - Monthly Income: ${self.income:.2f}")
         print("=" * 60)
@@ -78,15 +82,18 @@ class MoneyBuckets:
                 print(f"    Description: {value['description']}")
 
     def run(self):
+        # Main method to execute the MoneyBuckets functionality
         self.get_income()
         self.calculate_buckets()
         self.display()
 
 class CompoundInterest:
     def __init__(self):
+        # Initialize the CompoundInterest object
         self.total_savings = 0
 
     def get_age(self):
+        # Get and validate user's current age
         while True:
             age = input("Enter your age: ")
 
@@ -102,6 +109,7 @@ class CompoundInterest:
                     break
     
     def get_interest(self):
+        # Get and validate the interest rate for calculations
         while True:
             interest = input("Enter the interest rate: ").strip("%")
 
@@ -117,6 +125,7 @@ class CompoundInterest:
                     break
     
     def get_amount(self):
+        # Get and validate the annual investment amount
         while True:
             amount = input("Enter the amount you want to invest per annum: ").strip("$")
 
@@ -132,6 +141,7 @@ class CompoundInterest:
                     break
     
     def calculate_savings(self):
+        # Calculate compound interest from current age until age 60
         print("-" * 60)
 
         while self.age <= 60:
@@ -147,6 +157,7 @@ class CompoundInterest:
             self.age += 1
     
     def run(self):
+        # Main method to execute the CompoundInterest functionality
         self.get_age()
         self.get_interest()
         self.get_amount()
@@ -154,7 +165,9 @@ class CompoundInterest:
 
         print(f"Overall savings: ${self.total_savings:.2f}")
 
+# Main program loop
 while True:
+    # Get user's choice of tool
     mode = input("Select mode (money buckets/compound interest): ").lower()
 
     if mode == "money buckets":
