@@ -153,7 +153,8 @@ while True:
         money_buckets.run()
         break
     elif mode == "compound interest":
-        compound_interest()
+        compound_interest = CompoundInterest()
+        compound_interest.run()
         break
     else:
         print("Invalid mode.")
