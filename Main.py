@@ -132,9 +132,18 @@ class CompoundInterest:
                     break
     
     def calculate_savings(self):
+        print("-" * 60)
+
         while self.age <= 60:
+            self.total_savings += self.amount
             interest_earned = self.total_savings * self.interest
-            self.total_savings += self.amount + interest_earned
+            self.total_savings += interest_earned
+
+            print(f"Age: {self.age}")
+            print(f"Amount earned: ${(self.amount + interest_earned):.2f}")
+            print(f"Total savings: ${self.total_savings:.2f}")
+            print("-" * 60)
+
             self.age += 1
     
     def run(self):
@@ -143,7 +152,7 @@ class CompoundInterest:
         self.get_amount()
         self.calculate_savings()
 
-        print(f"Total savings: {self.total_savings}")
+        print(f"Overall savings: ${self.total_savings:.2f}")
 
 while True:
     mode = input("Select mode (money buckets/compound interest): ").lower()
