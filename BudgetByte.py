@@ -144,17 +144,19 @@ class CompoundInterest:
     def calculate_savings(self):
         # Calculate compound interest from current age until age 60
         print("-" * 60)
+        
+        # Print header row
+        print(f"{'Age':<10}{'Amount earned':<20}{'Total savings':<20}")
+        print("-" * 60)
 
         while self.age <= 60:
             self.total_savings += self.amount
             interest_earned = self.total_savings * self.interest
             self.total_savings += interest_earned
 
-            print(f"Age: {self.age}")
-            print(f"Amount earned: ${(self.amount + interest_earned):.2f}")
-            print(f"Total savings: ${self.total_savings:.2f}")
-            print("-" * 60)
-
+            # Print data row with aligned columns
+            print(f"{self.age:<10}${(self.amount + interest_earned):<18.2f}${self.total_savings:<18.2f}")
+            
             self.age += 1
     
     def run(self):
