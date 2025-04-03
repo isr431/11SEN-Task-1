@@ -2,8 +2,7 @@ WHILE true
     GET mode
     
     IF mode = "money buckets" THEN
-        CREATE MoneyBuckets
-        CALL MoneyBuckets.run
+        CALL money_buckets
         BREAK
     ELSE IF mode = "compound interest" THEN
         CALL compound_interest
@@ -13,33 +12,22 @@ WHILE true
     END IF
 END WHILE
 
-CLASS MoneyBuckets
-    FUNCTION get_income
-        GET income
-    END FUNCTION
+FUNCTION money_buckets
+    GET income
 
-    FUNCTION calculate_buckets
-        SET blow to 0.6 × income
-        SET daily_expense to 0.6 × blow
-        SET splurge to 0.1 × blow
-        SET smile to 0.1 × blow
-        SET fire_extinguisher to 0.2 × blow
-            
-        SET grow to 0.2 × income
-        SET mojo to 0.2 × income
-            
-        SET buckets
-    END FUNCTION
+    SET blow to 0.6 × income
+    SET daily_expense to 0.6 × blow
+    SET splurge to 0.1 × blow
+    SET smile to 0.1 × blow
+    SET fire_extinguisher to 0.2 × blow
+        
+    SET grow to 0.2 × income
+    SET mojo to 0.2 × income
 
-    FUNCTION display
-        DISPLAY buckets
-    END FUNCTION
+    SET buckets
 
-    FUNCTION run
-        CALL get_income
-        CALL calculate_buckets
-        CALL display
-END CLASS
+    DISPLAY buckets
+END FUNCTION
 
 FUNCTION compound_interest
     GET age
