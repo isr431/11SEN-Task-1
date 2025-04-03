@@ -37,6 +37,7 @@ FUNCTION compound_interest
     SET total_savings to 0
 
     WHILE age <= 60
+        set total_savings to total_savings + amount
         set interest_earned to total_savings * interest
         set total_savings to total_savings + interest_earned
         set age = age + 1
