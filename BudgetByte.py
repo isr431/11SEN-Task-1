@@ -173,15 +173,16 @@ print("Welcome to BudgetByte!")
 # Main program loop
 while True:
     # Get user's choice of tool
-    mode = input("Select mode (money buckets/compound interest): ").lower()
+    mode = input("Select mode (money buckets/compound interest/quit): ").lower()
 
     if mode == "money buckets":
         money_buckets = MoneyBuckets()
         money_buckets.run()
-        break
     elif mode == "compound interest":
         compound_interest = CompoundInterest()
         compound_interest.run()
+    elif mode == "quit":
+        print("Thank you for using BudgetByte!")
         break
     else:
         print("Invalid mode.")
